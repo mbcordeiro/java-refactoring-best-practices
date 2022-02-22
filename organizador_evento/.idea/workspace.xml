@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3be56bc-5224-4e26-9529-51c913af46ec" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e4c89c4f8791a5474181a3f0123cade21ff03558" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/caelum/eventos/dominio/Trilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/caelum/eventos/dominio/Trilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/caelum/eventos/infra/LeitorDePalestras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/caelum/eventos/infra/LeitorDePalestras.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
