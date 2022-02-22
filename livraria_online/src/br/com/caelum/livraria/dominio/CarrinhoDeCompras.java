@@ -39,7 +39,7 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 	
 	private LocalDate calcularDiaDeEntrega(int diasParaEntrega) {
 		LocalDate dataCalculada = dataDaCompra.plusDays(diasParaEntrega);
-		if(asList(SATURDAY, SUNDAY).contains(dataCalculada.getDayOfWeek())) return calcularDiaDeEntrega(diasParaEntrega + 1);
+		if(ehFinalDeSemana(dataCalculada)) return calcularDiaDeEntrega(diasParaEntrega + 1);
 		return dataCalculada;
 	}
 
@@ -49,6 +49,14 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 
 	public boolean doCliente(Cliente idCliente) {
 		return this.cliente.equals(idCliente);
+	}
+
+	public void adicionar(Livro livro) {
+		livros.adicionar(livro);
+	}
+
+	public boolean ehFinalDeSemana(LocalDate data ) {
+		return asList(SATURDAY, SUNDAY).contains(data.getDayOfWeek());
 	}
 	
 	@Override
@@ -60,7 +68,7 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 		}
 		return iguais;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return cliente.hashCode();
@@ -69,9 +77,5 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 	@Override
 	public Iterator<Livro> iterator() {
 		return livros.iterator();
-	}
-
-	public void adicionar(Livro livro) {
-		livros.adicionar(livro);
 	}
 }
