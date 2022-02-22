@@ -4,6 +4,7 @@ package br.com.caelum.eventos.dominio;
 import static br.com.caelum.eventos.dominio.Atividade.ALMOCO;
 import static br.com.caelum.eventos.dominio.Atividade.NETWORKING;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +20,25 @@ public class Trilha {
 
 		LocalTime horarioCalculado = sessaoDaManha.comecaAs();
 		for(Palestra palestra : sessaoDaManha){
-			palestra.agendarPara(horarioCalculado);
-			atividadesAgendadas.add(palestra);
+			agendarPaletra(horarioCalculado, palestra);
 			horarioCalculado = horarioCalculado.plusMinutes(palestra.lerTempoDeDuracao().toInt());
 		}
 		agendarAlmoco();
 		
 		horarioCalculado = sessaoDaTarde.comecaAs();
 		for(Palestra palestra : sessaoDaTarde){
-			palestra.agendarPara(horarioCalculado);
-			atividadesAgendadas.add(palestra);
+			agendarPaletra(horarioCalculado, palestra);
 			int tempoDeDuracaoEmMinutos = palestra.lerTempoDeDuracao().toInt();
 			horarioCalculado = horarioCalculado.plusMinutes(tempoDeDuracaoEmMinutos);
 		}
 		agendarNetworking();
 	}
-	
+
+	private void agendarPaletra(LocalTime horarioCalculado, Palestra palestra) {
+		palestra.agendarPara(horarioCalculado);
+		atividadesAgendadas.add(palestra);
+	}
+
 	private void agendarNetworking() {
 		atividadesAgendadas.add(NETWORKING);
 	}
