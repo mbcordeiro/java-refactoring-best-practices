@@ -33,18 +33,15 @@ public class LeitorDePalestras {
 
 	private Palestra lerPalestra(Scanner scanner) {
 		String linha = scanner.nextLine();
-		return lerPalestra(linha);
-	}
-	
-	private Palestra lerPalestra(String linha){
 		int indiceDaDivisaoEntreNomeETempo = linha.lastIndexOf(' ');
-		
+
 		String nome = linha.substring(0, indiceDaDivisaoEntreNomeETempo);
 		String tempoString = linha.substring(indiceDaDivisaoEntreNomeETempo + 1, linha.length() - 3);
-		TempoDeDuracao duracao = LIGHTING_STRING.contains(tempoString) 
-				? TempoDeDuracao.LIGHTING 
+		TempoDeDuracao duracao = LIGHTING_STRING.contains(tempoString)
+				? TempoDeDuracao.LIGHTING
 				: new TempoDeDuracao(Integer.valueOf(tempoString));
-		
+
 		return new Palestra(nome, duracao);
 	}
+
 }
